@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ZAIQA GOLD MASALA | Premium Aromatic Spices</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#d4af37",
+              "on-primary": "#151311",
+              "surface": "#151311",
+              "surface-dim": "#100e0c",
+              "surface-bright": "#3c3936",
+              "surface-container": "#1d1b19",
+              "on-surface": "#e8e1dd",
+              "on-surface-variant": "#99907c",
+              "outline": "#4d4635"
+            },
+            borderRadius: {
+              "DEFAULT": "1rem",
+              "lg": "2rem",
+              "xl": "3rem",
+              "full": "9999px"
+            },
+            spacing: {
+              "unit": "8px",
+              "gutter": "24px",
+              "section-padding-desktop": "120px",
+              "section-padding-mobile": "64px",
+              "container-max": "1280px"
+            },
+            fontFamily: {
+              "display": ["Playfair Display", "serif"],
+              "body": ["Poppins", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #151311;
+            color: #e8e1dd;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .font-display { font-family: 'Playfair Display', serif; }
+        
+        .glass {
+            background: rgba(29, 27, 25, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .gold-shimmer {
+            background: linear-gradient(135deg, #f2ca50 0%, #d4af37 50%, #f2ca50 100%);
+            background-size: 200% auto;
+            animation: shimmer 4s linear infinite;
+        }
+        
+        @keyframes shimmer {
+            to { background-position: 200% center; }
+        }
+
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .particle {
+            position: absolute;
+            pointer-events: none;
+            background: #d4af37;
+            border-radius: 50%;
+            opacity: 0.2;
+        }
+    </style>
+</head>
+<body class="selection:bg-primary selection:text-on-primary">
+<!-- Header / Navigation -->
+<nav class="fixed top-0 w-full z-50 transition-all duration-500 border-b border-transparent" id="main-nav">
+<div class="max-w-container-max mx-auto px-gutter py-4 flex justify-between items-center">
+<div class="text-2xl font-display font-bold tracking-tight text-primary uppercase">Zaiqa Gold</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-sm font-medium text-primary border-b border-primary pb-1" href="#">Home</a>
+<a class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">Shop</a>
+<a class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">Best Sellers</a>
+<a class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">Recipes</a>
+<a class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">About Us</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-primary hover:scale-110 transition-transform" data-icon="search">search</button>
+<button class="material-symbols-outlined text-primary hover:scale-110 transition-transform" data-icon="shopping_cart">shopping_cart</button>
+<button class="md:hidden material-symbols-outlined text-primary" data-icon="menu">menu</button>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-black/50 z-10"></div>
+<img alt="Hero Spice Background" class="w-full h-full object-cover scale-105" src="https://lh3.googleusercontent.com/aida/ADBb0ujFTq-2sw7suQwDGg40nh6dcnbjzevppm6IpZ5DNlGirsQ1OMC5I1xQnGzxymF5dadHLJFHxwSXZduu6sX5_M82ThorlIF5tuPaa05Gvun_-omC-arjxBDIuS3If-UtL5-XZuDxR8GRhKonWhKZpRZhEWF2ywUIMxwtRBypv18e19kLx1-5YKspZYS5gKketOv1g-2j-V5_uEfIfMk1TrnQ0PbCjGG3CSbZ8jkx0SxhSjFyAVXAN_rxYDLL"/>
+</div>
+<div class="absolute inset-0 pointer-events-none" id="particle-canvas"></div>
+<div class="relative z-20 text-center px-gutter max-w-4xl">
+<h1 class="text-5xl md:text-7xl font-display font-bold mb-6 leading-tight">
+                    Pure Spices. <span class="text-primary italic">Real Taste.</span><br/>
+                    Trusted by Every Kitchen.
+                </h1>
+<p class="text-lg md:text-xl text-on-surface-variant mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+                    Freshly ground authentic masalas delivered directly to your home. Experience the soul of Indian cuisine with Zaiqa Gold.
+                </p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center">
+<button class="gold-shimmer px-12 py-4 rounded-full text-on-primary font-bold tracking-widest text-xs uppercase shadow-xl hover:scale-105 transition-all">
+                        Shop Now
+                    </button>
+<button class="glass px-12 py-4 rounded-full text-primary font-bold tracking-widest text-xs uppercase hover:bg-primary/10 transition-all">
+                        Explore Blends
+                    </button>
+</div>
+</div>
+</section>
+<!-- Features Section -->
+<section class="py-section-padding-desktop px-gutter bg-surface">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="glass p-10 rounded-xl group hover:border-primary/40 transition-all duration-500">
+<span class="material-symbols-outlined text-primary text-4xl mb-6 block" data-icon="eco">eco</span>
+<h3 class="text-xl font-display font-semibold mb-3">Farm Fresh</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Sourced directly from organic farms at their peak harvest for maximum potency.</p>
+</div>
+<div class="glass p-10 rounded-xl group hover:border-primary/40 transition-all duration-500">
+<span class="material-symbols-outlined text-primary text-4xl mb-6 block" data-icon="verified_user">verified_user</span>
+<h3 class="text-xl font-display font-semibold mb-3">No Artificial Colors</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">100% natural hue and flavor, absolutely no chemical additives or fillers.</p>
+</div>
+<div class="glass p-10 rounded-xl group hover:border-primary/40 transition-all duration-500">
+<span class="material-symbols-outlined text-primary text-4xl mb-6 block" data-icon="lock">lock</span>
+<h3 class="text-xl font-display font-semibold mb-3">Aroma Lock</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Triple-layer premium packaging to preserve volatile oils and freshness.</p>
+</div>
+<div class="glass p-10 rounded-xl group hover:border-primary/40 transition-all duration-500">
+<span class="material-symbols-outlined text-primary text-4xl mb-6 block" data-icon="local_shipping">local_shipping</span>
+<h3 class="text-xl font-display font-semibold mb-3">Fast Delivery</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Delivering the fresh essence of spices to every corner of the country.</p>
+</div>
+</div>
+</section>
+<!-- Best Sellers -->
+<section class="py-section-padding-desktop bg-surface-container/30">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex justify-between items-end mb-16">
+<div>
+<h2 class="text-4xl md:text-5xl font-display font-bold mb-4">Our Best Sellers</h2>
+<div class="h-1 w-24 bg-primary rounded-full"></div>
+</div>
+<a class="text-primary text-xs font-bold tracking-widest uppercase border-b border-primary pb-1 hover:text-white hover:border-white transition-all" href="#">View All Products</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Turmeric Card -->
+<div class="group relative pt-16">
+<div class="glass p-8 rounded-2xl relative transition-all duration-500 group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] group-hover:-translate-y-2">
+<img alt="Turmeric Powder" class="absolute -top-16 left-1/2 -translate-x-1/2 w-48 h-48 object-contain drop-shadow-2xl transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida/ADBb0ugafv5zHJz46tiHqOibwDzVysrylBUvrxluxdploxzAjZlFg_vtwjYG_23vUjEs34Z-Xhfc8YJrtv78e4W89myZv9uJPKJUlOV1nsyZ4rAIj-W70uzCB2MeXRBjVWKCfT2ecoMtlLhSGVQcAztt5-cPWn0Px8afwb8vKZFQaFZJRpVVGs2G8mru0pdkirpWLA71wt6b5si6k0qSUT4k90n5nXQDJPeMY05X1KrF9EiJR8tqqQnwzXcv2v2U"/>
+<div class="mt-32 text-center">
+<div class="flex justify-center gap-1 text-primary mb-3">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<h4 class="text-2xl font-display font-semibold mb-2">Turmeric Powder</h4>
+<p class="text-primary font-bold text-xl mb-8">₹149.00</p>
+<button class="w-full py-4 rounded-full border border-primary/30 text-primary text-xs font-bold tracking-widest uppercase hover:bg-primary hover:text-on-primary transition-all duration-300">Add to Cart</button>
+</div>
+</div>
+</div>
+<!-- Red Chilli Card -->
+<div class="group relative pt-16">
+<div class="glass p-8 rounded-2xl relative transition-all duration-500 group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] group-hover:-translate-y-2">
+<img alt="Red Chilli Powder" class="absolute -top-16 left-1/2 -translate-x-1/2 w-48 h-48 object-contain drop-shadow-2xl transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida/ADBb0uglC0km6jUQJUjndrGHKEDkROPsJN0476NlvAiz52zdG2DQ9ImTgiNGP03tJMukIDUxISnBofKK0gkBsv_hZqAjP_dms_tMj883ozunNOlry58ytsfN3EFN1bvWU_n53asaOWZnpeVy9_bPOyDV3Bwi2633Arck7iH0NDrOipK5Os9ESCTahcCnyuVTG6McnznAdWl3zhmLdiDb1C6_320a3vYUsmdmbCw6Tpjht_O8kLqvvMvvHhBoBXZ5"/>
+<div class="mt-32 text-center">
+<div class="flex justify-center gap-1 text-primary mb-3">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0.5;">star_half</span>
+</div>
+<h4 class="text-2xl font-display font-semibold mb-2">Red Chilli Powder</h4>
+<p class="text-primary font-bold text-xl mb-8">₹189.00</p>
+<button class="w-full py-4 rounded-full border border-primary/30 text-primary text-xs font-bold tracking-widest uppercase hover:bg-primary hover:text-on-primary transition-all duration-300">Add to Cart</button>
+</div>
+</div>
+</div>
+<!-- Garam Masala Card -->
+<div class="group relative pt-16">
+<div class="glass p-8 rounded-2xl relative transition-all duration-500 group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] group-hover:-translate-y-2">
+<img alt="Garam Masala" class="absolute -top-16 left-1/2 -translate-x-1/2 w-48 h-48 object-contain drop-shadow-2xl transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida/ADBb0ujh2oqLlDd-iVxxeTdUxpZNVysX8NaEJZw9e6ibMQrBhVxN4U7Ui18oAxXwpJC7p9p8rQRO5gJBPBkypYPNmz2JlhGu9aNWw6YDKGp80oOdvSw1bVqH9grEmaz-L5G9xq08uiiWo-bn1yNesSegsI4XUDE9-tEBCmIUwHYHchPmvMzNH1OoLxsru0UAUx-i5YN19di-TLsQn6kD7XiwJiGEqCkaDAsl7z0xavJr_DLolYuuH09C1L3c9Ss"/>
+<div class="mt-32 text-center">
+<div class="flex justify-center gap-1 text-primary mb-3">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<h4 class="text-2xl font-display font-semibold mb-2">Garam Masala</h4>
+<p class="text-primary font-bold text-xl mb-8">₹225.00</p>
+<button class="w-full py-4 rounded-full border border-primary/30 text-primary text-xs font-bold tracking-widest uppercase hover:bg-primary hover:text-on-primary transition-all duration-300">Add to Cart</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Spice Experience -->
+<section class="relative h-[600px] flex items-center overflow-hidden bg-surface-dim">
+<div class="absolute right-0 top-0 bottom-0 w-full md:w-1/2 z-0">
+<div class="absolute inset-0 bg-gradient-to-r from-surface-dim via-surface-dim/40 to-transparent z-10"></div>
+<img alt="Experience" class="w-full h-full object-cover floating scale-150 transform -rotate-12 opacity-50 md:opacity-80" src="https://lh3.googleusercontent.com/aida/ADBb0ujh2oqLlDd-iVxxeTdUxpZNVysX8NaEJZw9e6ibMQrBhVxN4U7Ui18oAxXwpJC7p9p8rQRO5gJBPBkypYPNmz2JlhGu9aNWw6YDKGp80oOdvSw1bVqH9grEmaz-L5G9xq08uiiWo-bn1yNesSegsI4XUDE9-tEBCmIUwHYHchPmvMzNH1OoLxsru0UAUx-i5YN19di-TLsQn6kD7XiwJiGEqCkaDAsl7z0xavJr_DLolYuuH09C1L3c9Ss"/>
+</div>
+<div class="relative z-20 px-gutter max-w-container-max mx-auto w-full">
+<div class="max-w-2xl">
+<h2 class="text-4xl md:text-6xl font-display font-bold mb-8 leading-tight">Every spoon carries <span class="text-primary italic">authentic</span> Indian flavor.</h2>
+<p class="text-lg text-on-surface-variant mb-12 leading-relaxed font-light">Our master blenders follow generations-old recipes, ensuring every pinch of Zaiqa Gold brings the soul of India's heritage kitchens into your home. We lock in the natural oils for an unparalleled sensory ritual.</p>
+<button class="flex items-center gap-6 group">
+<span class="w-16 h-16 rounded-full glass flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all duration-500">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</span>
+<span class="text-sm font-bold tracking-[0.3em] uppercase group-hover:text-primary transition-colors">See the Process</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-section-padding-desktop bg-surface overflow-hidden">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-20">
+<h2 class="text-4xl md:text-5xl font-display font-bold mb-4">Cherished by Connoisseurs</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto font-light">Hear from those who have transformed their culinary experiences with the purity of Zaiqa Gold.</p>
+</div>
+<div class="flex gap-8 overflow-x-auto pb-12 snap-x no-scrollbar">
+<!-- Testimonial 1 -->
+<div class="min-w-[350px] md:min-w-[500px] glass p-12 rounded-2xl snap-center flex flex-col justify-between hover:border-primary/30 transition-all duration-500">
+<p class="text-2xl font-display italic leading-relaxed text-on-surface mb-8">"The aroma alone takes me back to my grandmother's kitchen. The quality is truly exceptional and unmatched in the market today."</p>
+<div class="flex items-center gap-5">
+<div class="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 overflow-hidden">
+<img alt="Priya Sharma" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1MEnkZAE8ZRkmFw8UJa87E5C99N9LNTOWiu3CUH3E0Pm8qH20GH_4YfaANuLsJ2rARsbqlSejkMbHmJvVXxtdGtalWvjj1XjR1d146DJcGgiJ7d7KAl5HW-1BDCUjsiV3bdKL5_hP7aMcI8tSvI2m8Fji1cHrHtSQTotBinO5t4koSIjay9wtUsaYW9edaa8AA4dTQb7-MZJ5aBkkSOycpB4V98BYJApaGYWnVALSk4mmlNq93WkEMSjrnEwpPERlufMjG81XTYyE"/>
+</div>
+<div>
+<p class="font-bold text-lg">Priya Sharma</p>
+<p class="text-primary text-xs font-bold tracking-widest uppercase">Home Chef, Mumbai</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="min-w-[350px] md:min-w-[500px] glass p-12 rounded-2xl snap-center flex flex-col justify-between hover:border-primary/30 transition-all duration-500">
+<p class="text-2xl font-display italic leading-relaxed text-on-surface mb-8">"I've searched for years for spices that maintain this level of purity and depth. Zaiqa Gold is the gold standard for my restaurant."</p>
+<div class="flex items-center gap-5">
+<div class="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 overflow-hidden">
+<img alt="Vikram Singh" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkQ1urFMIsFx3n2u0VL0r1ZtBHDUedduBI1HWInagRUGhW4TFulWJYDoW4rAT46suKWi2tmvIp18O1A4xxf3OMJS95fMZhqeZLvspyGjkEfiv3UaodTyj5VNXLn-V6FEMRtup_RJFT5dVreuBqnazex883-x1qLJQaW5AiWK5Yve3kD53oA4iod0jwD5XtGmE1xOwA2LFlN_oCpjzKMwSAnPAP0jyZae9toacVXqP0SgXb6wdwwDAbDuze3vkW0Z7aOV15TQzwjddJ"/>
+</div>
+<div>
+<p class="font-bold text-lg">Chef Vikram Singh</p>
+<p class="text-primary text-xs font-bold tracking-widest uppercase">Executive Chef</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="min-w-[350px] md:min-w-[500px] glass p-12 rounded-2xl snap-center flex flex-col justify-between hover:border-primary/30 transition-all duration-500">
+<p class="text-2xl font-display italic leading-relaxed text-on-surface mb-8">"Finally a brand that respects traditional methods. The flavor profile is complex, rich, and beautifully balanced."</p>
+<div class="flex items-center gap-5">
+<div class="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 overflow-hidden">
+<img alt="Ananya Rao" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArfDSZYMbktNDO7Wn5MOQqgYE84c3DhMzTYBVPGfGndnWMCpzTqdFS4pnaaGLqLUDXgxEWYS4h1N0I3eFsnd2d7hQaD7qz1pBHw73CKsWKQftxSNCwAnC0LboTWT0GQo2PW5bEXDW9yBUl82V22AnlxOxNTiwjDLazkD_CnYzsJH-4ocxDBZhMdTDo0WhEAVa3g9Nrzf8UcwUHcx8A_4XPlF3EskHjs0ft5Z_yjUIMFo4YSzqU2TtYJILfM8_8UbecbVRdqPC7UsNt"/>
+</div>
+<div>
+<p class="font-bold text-lg">Ananya Rao</p>
+<p class="text-primary text-xs font-bold tracking-widest uppercase">Food Blogger</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Culinary Inspirations (Recipes) -->
+<section class="py-section-padding-desktop bg-surface-container/30 px-gutter">
+<div class="max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
+<h2 class="text-4xl font-display font-bold">Culinary Inspirations</h2>
+<button class="px-10 py-3 rounded-full border border-primary text-primary text-xs font-bold tracking-widest uppercase hover:bg-primary hover:text-on-primary transition-all">All Recipes</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="relative h-[550px] rounded-2xl overflow-hidden group">
+<img alt="Butter Chicken" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5zQn6tOOELLfT1Yi6jwgm14Hm0fq-JX6ME8m_QDkk8SPAltxBpfm7iprUriEy8SpDUV8C7Cz4a_QjwjD1EQ-9CjZ-HpjFhYjGPDs2QXqWxyNjR5csffV5CMxafh55rephWC-HvKoO48UaRlfXaWZ2nSc2YkwtkgOzNRNqa7sGga-KiK963x6SY7-5Z6PAVhcI5-HD6A4nWF5RCMjI15LUribGl5OVaUOLuTpEYlDwQhGWm9Tyih48_-BYlLlZqGB2iEjngk51BqxM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+<div class="absolute bottom-12 left-12 right-12">
+<h3 class="text-3xl font-display font-bold mb-6">Signature Butter Chicken</h3>
+<div class="flex gap-4">
+<button class="glass px-6 py-3 rounded-full text-primary text-[10px] font-bold tracking-widest uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">play_circle</span> Watch Recipe
+                                </button>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-full text-[10px] font-bold tracking-widest uppercase">Buy Ingredients</button>
+</div>
+</div>
+</div>
+<div class="relative h-[550px] rounded-2xl overflow-hidden group">
+<img alt="Shahi Paneer" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyJdtPEn1LAvPq1OB3Lu3Q4ym6MF87B6KcIKVYB_ygg-YfmUwHCLZLofqqmhxjVNd0fwDH_HU8esm9zjzl5SmsA5L1oRYxcmMWAZ8hO_V4H6AoJ1pnQ7ihACXPaGIOf5mDAtaQy-1goWHtC1wUkIniyVGICDzWhFy_MEs68dyYrtNKJNbSrfwd11VXCeh0ga_QGY9iCceGs1_89qFjnKx8adDtfQ8-SxhEnSDZ30FJWdMZIBBkMq6ddU6sSn99f8HT-mtwpyQSOqEW"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+<div class="absolute bottom-12 left-12 right-12">
+<h3 class="text-3xl font-display font-bold mb-6">Royal Shahi Paneer</h3>
+<div class="flex gap-4">
+<button class="glass px-6 py-3 rounded-full text-primary text-[10px] font-bold tracking-widest uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">play_circle</span> Watch Recipe
+                                </button>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-full text-[10px] font-bold tracking-widest uppercase">Buy Ingredients</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Badges -->
+<section class="py-24 border-y border-outline/20 bg-surface">
+<div class="max-w-container-max mx-auto px-gutter flex flex-wrap justify-center gap-12 md:gap-32 items-center">
+<div class="flex flex-col items-center gap-4 opacity-70 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-4xl text-primary">verified</span>
+<p class="text-[10px] font-bold tracking-[0.2em] uppercase">FSSAI Certified</p>
+</div>
+<div class="flex flex-col items-center gap-4 opacity-70 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-4xl text-primary">clean_hands</span>
+<p class="text-[10px] font-bold tracking-[0.2em] uppercase">100% Pure</p>
+</div>
+<div class="flex flex-col items-center gap-4 opacity-70 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-4xl text-primary">security</span>
+<p class="text-[10px] font-bold tracking-[0.2em] uppercase">Secure Payments</p>
+</div>
+<div class="flex flex-col items-center gap-4 opacity-70 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-4xl text-primary">local_shipping</span>
+<p class="text-[10px] font-bold tracking-[0.2em] uppercase">Free Shipping</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-dim pt-section-padding-desktop pb-12 border-t border-outline/10">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+<div class="col-span-1 md:col-span-1">
+<div class="text-3xl font-display font-bold text-primary mb-8 uppercase tracking-tighter">Zaiqa Gold</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-10 font-light">Crafting culinary history, one spice at a time. Join our journey into the heart of authentic Indian flavor profiles.</p>
+<div class="flex gap-5">
+<a class="w-10 h-10 rounded-full glass flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="#"><span class="material-symbols-outlined text-xl">facebook</span></a>
+<a class="w-10 h-10 rounded-full glass flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="#"><span class="material-symbols-outlined text-xl">photo_camera</span></a>
+<a class="w-10 h-10 rounded-full glass flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="#"><span class="material-symbols-outlined text-xl">alternate_email</span></a>
+</div>
+</div>
+<div>
+<h4 class="text-xs font-bold tracking-widest uppercase mb-10 text-white">Shop Categories</h4>
+<ul class="space-y-4">
+<li><a class="text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">All Spices</a></li>
+<li><a class="text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Whole Blends</a></li>
+<li><a class="text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Ground Powders</a></li>
+<li><a class="text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Combo Packs</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-xs font-bold tracking-widest uppercase mb-10 text-white">Our Story</h4>
+<ul class="space-y-4">
+<li><a class="text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Heritage</a></li>
+<li><a class="text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Authenticity</a></li>
+<li><a class="text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Sustainability</a></li>
+<li><a class="text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-xs font-bold tracking-widest uppercase mb-10 text-white">Newsletter</h4>
+<p class="text-sm text-on-surface-variant mb-6 font-light">Subscribe for royal recipes and early access to limited harvests.</p>
+<div class="relative">
+<input class="w-full bg-surface-container border border-outline/20 rounded-full px-6 py-4 text-sm focus:border-primary focus:ring-0 outline-none transition-all placeholder:text-on-surface-variant/50" placeholder="Email Address" type="email"/>
+<button class="absolute right-2 top-2 bottom-2 bg-primary text-on-primary rounded-full px-5 flex items-center justify-center hover:scale-105 transition-all">
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-gutter pt-8 border-t border-outline/10 text-center">
+<p class="text-[10px] font-bold tracking-[0.2em] uppercase text-on-surface-variant">© 2024 ZAIQA GOLD MASALA. Crafted for Connoisseurs.</p>
+</div>
+</footer>
+<!-- Side Floating Actions -->
+<div class="fixed bottom-8 right-8 z-50 flex flex-col gap-4">
+<a class="bg-[#25D366] text-white rounded-full p-4 shadow-2xl hover:scale-110 transition-transform duration-300" href="https://wa.me/yournumber" target="_blank">
+<span class="material-symbols-outlined text-3xl">chat</span>
+</a>
+</div>
+<script>
+        // Particle Background logic
+        const container = document.getElementById('particle-canvas');
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            const size = Math.random() * 4 + 2 + 'px';
+            particle.style.width = size;
+            particle.style.height = size;
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.opacity = Math.random() * 0.3;
+            particle.style.animation = `floating ${Math.random() * 5 + 5}s ease-in-out infinite`;
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            container.appendChild(particle);
+        }
+
+        // Navbar Scroll Effect
+        const nav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                nav.classList.add('bg-surface/90', 'backdrop-blur-xl', 'py-3', 'border-primary/10');
+                nav.classList.remove('py-4', 'border-transparent');
+            } else {
+                nav.classList.remove('bg-surface/90', 'backdrop-blur-xl', 'py-3', 'border-primary/10');
+                nav.classList.add('py-4', 'border-transparent');
+            }
+        });
+    </script>
+</body></html>
