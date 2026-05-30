@@ -29,3 +29,34 @@
             }
         });
     </script>
+
+let cart = [];
+
+function addToCart(productName, price) {
+
+cart.push({
+name: productName,
+price: price
+});
+
+updateCartCount();
+
+localStorage.setItem("cart", JSON.stringify(cart));
+
+alert(productName + " added to cart");
+}
+
+function updateCartCount() {
+
+document.getElementById("cart-count").innerText = cart.length;
+}
+
+window.onload = () => {
+
+const savedCart = localStorage.getItem("cart");
+
+if(savedCart) {
+cart = JSON.parse(savedCart);
+updateCartCount();
+}
+}
